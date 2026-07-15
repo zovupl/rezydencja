@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rezydencja — Barcelona | Luksusowa willa na sprzedaż</title>
-<meta name="description" content="Ekskluzywna rezydencja w stylu pałacowym nad Barceloną. Basen infinity z widokiem na miasto i morze, kryty basen ze spa, marmurowe wnętrza.">
+<title>Rezydencja — Warszawa | Luksusowa willa na sprzedaż</title>
+<meta name="description" content="Ekskluzywna rezydencja w stylu pałacowym pod Warszawą. Basen infinity, kryty basen ze spa, marmurowe wnętrza, prywatny ogród.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -105,14 +105,25 @@ section.blk{padding:110px 0}
 .feat p{color:var(--muted);font-size:15px;font-weight:300}
 
 /* GALLERY */
-.gallery{columns:3;column-gap:14px}
-.gitem{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--panel)}
-.gitem img{width:100%;transition:.6s ease;filter:saturate(.95)}
-.gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.5),transparent 55%);opacity:0;transition:.4s}
-.gitem:hover img{transform:scale(1.05)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gitem{position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--panel);aspect-ratio:4/3}
+.gitem.feat{grid-column:span 2;grid-row:span 2}
+.gitem img{width:100%;height:100%;object-fit:cover;transition:.7s ease;filter:saturate(.97)}
+.gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.55),transparent 55%);opacity:0;transition:.4s}
+.gitem:hover img{transform:scale(1.06)}
 .gitem:hover::after{opacity:1}
-.gitem .plus{position:absolute;right:14px;bottom:14px;color:#fff;opacity:0;transition:.4s;z-index:2;font-size:22px;font-family:var(--serif)}
+.gitem .plus{position:absolute;right:16px;bottom:14px;color:#fff;opacity:0;transition:.4s;z-index:2;font-size:24px;font-family:var(--serif)}
 .gitem:hover .plus{opacity:1}
+.gallery-more{text-align:center;margin-top:44px}
+.teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;border-radius:2px;overflow:hidden}
+.teaser-grid .tcell{aspect-ratio:3/4;overflow:hidden;background:var(--panel)}
+.teaser-grid img{width:100%;height:100%;object-fit:cover;transition:.7s ease}
+.teaser-grid:hover img{transform:scale(1.06)}
+.tover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(rgba(8,9,11,.35),rgba(8,9,11,.62));transition:.4s}
+.teaser-grid:hover .tover{background:linear-gradient(rgba(8,9,11,.28),rgba(8,9,11,.55))}
+.tover-in{text-align:center}
+.tover-in b{display:block;font-family:var(--serif);font-size:clamp(26px,3vw,40px);color:#fff;font-weight:500}
+.tover-in em{display:block;font-style:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-top:10px}
 
 /* LIGHTBOX */
 .lb{position:fixed;inset:0;background:rgba(6,7,9,.96);z-index:1000;display:none;align-items:center;justify-content:center}
@@ -173,7 +184,8 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
   .facts-grid{grid-template-columns:repeat(3,1fr)}
   .fact:nth-child(3){border-right:none}
   .fact:nth-child(-n+3){border-bottom:1px solid var(--line)}
-  .gallery{columns:2}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gitem.feat{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
 }
 @media(max-width:760px){
   .wrap{padding:0 20px}
@@ -186,7 +198,8 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
   .fact:nth-child(odd){border-right:1px solid var(--line)}
   .fact:nth-child(-n+4){border-bottom:1px solid var(--line)}
   .feat-grid{grid-template-columns:1fr}
-  .gallery{columns:1}
+  .gallery{grid-template-columns:1fr}
+  .gitem,.gitem.feat{aspect-ratio:4/3;grid-column:auto}
   .hero{padding-bottom:14vh}
   .lb-nav{width:44px;height:44px}
   .lb-prev{left:10px}.lb-next{right:10px}
@@ -204,7 +217,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
     <nav class="nav-links" id="navlinks">
       <a href="#about" data-i18n="nav_about">Rezydencja</a>
       <a href="#features" data-i18n="nav_features">Atuty</a>
-      <a href="#gallery" data-i18n="nav_gallery">Galeria</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Galeria</a>
       <a href="#location" data-i18n="nav_location">Lokalizacja</a>
       <a href="#contact" data-i18n="nav_contact">Kontakt</a>
     </nav>
@@ -280,14 +293,23 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
   </div>
 </section>
 
-<section class="blk" id="gallery">
+<section class="blk gal-teaser" id="gallery">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head reveal" style="max-width:760px;margin:0 auto 48px;text-align:center">
       <span class="eyebrow" data-i18n="gal_eyebrow">Galeria</span>
-      <h2 data-i18n="gal_h">50 kadrów rezydencji</h2>
-      <p data-i18n="gal_p">Kliknij zdjęcie, aby powiększyć. Od pałacowej elewacji po basen ze spa.</p>
+      <h2 data-i18n="gal_h">Wybrane wnętrza</h2>
+      <p data-i18n="gal_p" style="margin-left:auto;margin-right:auto">Od pałacowej elewacji po kryty basen ze spa — zobacz pełną dokumentację fotograficzną rezydencji.</p>
     </div>
-    <div class="gallery reveal" id="gallery-grid"></div>
+    <a href="gallery.html" class="teaser-grid reveal">
+      <span class="tcell"><img loading="lazy" src="assets/thumb/31.jpg" alt=""></span>
+      <span class="tcell"><img loading="lazy" src="assets/thumb/45.jpg" alt=""></span>
+      <span class="tcell"><img loading="lazy" src="assets/thumb/1.jpg" alt=""></span>
+      <span class="tcell"><img loading="lazy" src="assets/thumb/24.jpg" alt=""></span>
+      <span class="tover"><span class="tover-in"><b data-i18n="gal_over">Pełna galeria</b><em data-i18n="gal_count">50 zdjęć</em></span></span>
+    </a>
+    <div class="gallery-more reveal">
+      <a href="gallery.html" class="btn btn-gold" data-i18n="gal_btn">Zobacz pełną galerię</a>
+    </div>
   </div>
 </section>
 
@@ -319,7 +341,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
         <div class="row"><span class="lbl" data-i18n="con_phone">Telefon</span><a href="tel:+48000000000">+48 000 000 000</a></div>
         <div class="row"><span class="lbl">E-mail</span><a href="mailto:kontakt@zovu.pl">kontakt@zovu.pl</a></div>
         <div class="row"><span class="lbl" data-i18n="con_agency">Agencja</span><span>ZOVU · zovu.pl</span></div>
-        <div class="row"><span class="lbl" data-i18n="con_ref">Nr oferty</span><span>ZV-BCN-001</span></div>
+        <div class="row"><span class="lbl" data-i18n="con_ref">Nr oferty</span><span>ZV-WAW-001</span></div>
       </div>
     </div>
     <form onsubmit="return sendForm(event)">
@@ -340,7 +362,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
       <div class="brand"><b data-i18n="brand">Rezydencja Barcelona</b><span data-i18n="brandsub">Kolekcja nieruchomości premium</span></div>
       <div class="foot-links">
         <a href="#about" data-i18n="nav_about">Rezydencja</a>
-        <a href="#gallery" data-i18n="nav_gallery">Galeria</a>
+        <a href="gallery.html" data-i18n="nav_gallery">Galeria</a>
         <a href="#location" data-i18n="nav_location">Lokalizacja</a>
         <a href="#contact" data-i18n="nav_contact">Kontakt</a>
       </div>
@@ -352,90 +374,82 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
   </div>
 </footer>
 
-<div class="lb" id="lb">
-  <button class="lb-close" id="lbClose">×</button>
-  <button class="lb-nav lb-prev" id="lbPrev">‹</button>
-  <img id="lbImg" src="" alt="">
-  <button class="lb-nav lb-next" id="lbNext">›</button>
-  <div class="lb-count" id="lbCount"></div>
-</div>
-
 <script>
 /* ===== i18n ===== */
 const I18N={
 pl:{
-brand:"Rezydencja Barcelona",brandsub:"Kolekcja nieruchomości premium",
+brand:"Rezydencja Warszawa",brandsub:"Kolekcja nieruchomości premium",
 nav_about:"Rezydencja",nav_features:"Atuty",nav_gallery:"Galeria",nav_location:"Lokalizacja",nav_contact:"Kontakt",nav_cta:"Zapytaj o cenę",
-hero_eyebrow:"Barcelona · Wzgórza z widokiem na morze",hero_title:"Pałacowa rezydencja<br>ponad <i>Barceloną</i>",
-hero_lead:"Wyjątkowa willa w stylu klasycznym z basenem infinity, panoramą miasta i Morza Śródziemnego. Marmur, ręcznie rzeźbione detale, kryty basen ze spa.",
+hero_eyebrow:"Warszawa · Prestiżowa dzielnica willowa",hero_title:"Pałacowa rezydencja<br>pod <i>Warszawą</i>",
+hero_lead:"Wyjątkowa willa w stylu klasycznym z basenem infinity, prywatnym ogrodem i panoramą okolicy. Marmur, ręcznie rzeźbione detale, kryty basen ze spa.",
 hero_cta1:"Zobacz galerię",hero_cta2:"Umów prezentację",scroll:"Przewiń",
-f1v:"800 m²",f1k:"Powierzchnia",f2v:"1 500 m²",f2k:"Działka",f3v:"6",f3k:"Sypialnie",f4v:"7",f4k:"Łazienki",f5v:"2",f5k:"Baseny",f6v:"180°",f6k:"Panorama",
+f1v:"800 m²",f1k:"Powierzchnia",f2v:"1 500 m²",f2k:"Działka",f3v:"6",f3k:"Sypialnie",f4v:"7",f4k:"Łazienki",f5v:"2",f5k:"Baseny",f6v:"24/7",f6k:"Ochrona",
 about_eyebrow:"O rezydencji",about_h:"Klasyczny majestat,<br>współczesny komfort",
-about_p1:"Rezydencja wznosi się na jednym z najbardziej prestiżowych wzgórz nad Barceloną. <b>Kamienna elewacja, mansardowy dach i kolumnady</b> nadają jej charakter pałacu, a wnętrza łączą marmur, ręcznie rzeźbione płaskorzeźby i najnowsze technologie.",
-about_p2:"Dwukondygnacyjny hol z reprezentacyjnymi schodami, sufity z „gwiaździstym niebem\", <b>kryty basen ze spa i strefą wellness</b> oraz zewnętrzny basen infinity z widokiem na miasto i morze — to dom stworzony do życia i przyjmowania gości na najwyższym poziomie.",
+about_p1:"Rezydencja wznosi się w jednej z najbardziej prestiżowych dzielnic willowych pod Warszawą. <b>Kamienna elewacja, mansardowy dach i kolumnady</b> nadają jej charakter pałacu, a wnętrza łączą marmur, ręcznie rzeźbione płaskorzeźby i najnowsze technologie.",
+about_p2:"Dwukondygnacyjny hol z reprezentacyjnymi schodami, sufity z „gwiaździstym niebem\", <b>kryty basen ze spa i strefą wellness</b> oraz zewnętrzny basen infinity i zadbany ogród — to dom stworzony do życia i przyjmowania gości na najwyższym poziomie.",
 about_cta:"Poznaj wnętrza",about_tagv:"Styl pałacowy",about_tagk:"Kamień · marmur · złoto",
 feat_eyebrow:"Atuty",feat_h:"To, co czyni ją wyjątkową",feat_p:"Każdy detal został zaprojektowany z myślą o luksusie, prywatności i codziennym komforcie.",
-feat1h:"Basen infinity",feat1p:"Zewnętrzny basen bez krawędzi z panoramą Barcelony i Morza Śródziemnego.",
+feat1h:"Basen infinity",feat1p:"Zewnętrzny basen bez krawędzi z widokiem na prywatny ogród i okolicę.",
 feat2h:"Kryty basen i spa",feat2p:"Wewnętrzna strefa wellness z podświetlanym basenem i sufitem „gwiaździste niebo\".",
-feat3h:"Widok na miasto i morze",feat3p:"Rezydencja położona na wzgórzu z niezakłóconą panoramą 180°.",
+feat3h:"Prywatność i przestrzeń",feat3p:"Ogrodzona posesja z bramą, zadbanym ogrodem i tarasami — pełna dyskrecja.",
 feat4h:"Marmurowe wnętrza",feat4p:"Polerowany marmur, kolumny i ręcznie rzeźbione kamienne płaskorzeźby.",
 feat5h:"Reprezentacyjny hol",feat5p:"Dwukondygnacyjny salon ze schodami i galerią oraz kutymi balustradami.",
 feat6h:"Prywatny ogród",feat6p:"Zadbany teren z trawnikiem, tarasami i strefą wypoczynku na świeżym powietrzu.",
-gal_eyebrow:"Galeria",gal_h:"50 kadrów rezydencji",gal_p:"Kliknij zdjęcie, aby powiększyć. Od pałacowej elewacji po basen ze spa.",
-loc_eyebrow:"Lokalizacja",loc_h:"Wzgórza nad Barceloną",loc_p:"Jedna z najbardziej ekskluzywnych okolic w regionie — cisza, zieleń i prywatność, a jednocześnie kilka minut od centrum miasta, plaż i międzynarodowej szkoły.",
-loc1b:"Centrum Barcelony",loc1v:"ok. 15 minut samochodem",loc2b:"Plaże / morze",loc2v:"ok. 15 minut",loc3b:"Lotnisko El Prat",loc3v:"ok. 30 minut",loc4b:"Otoczenie",loc4v:"prestiżowa dzielnica willowa",
+gal_eyebrow:"Galeria",gal_h:"Wybrane wnętrza",gal_p:"Od pałacowej elewacji po kryty basen ze spa — zobacz pełną dokumentację fotograficzną rezydencji.",gal_btn:"Zobacz pełną galerię",gal_over:"Pełna galeria",gal_count:"50 zdjęć",gal_page_p:"Kliknij zdjęcie, aby powiększyć. Strzałki lub Esc do nawigacji.",gal_back:"Powrót do strony głównej",
+loc_eyebrow:"Lokalizacja",loc_h:"Prestiżowa okolica pod Warszawą",loc_p:"Jedna z najbardziej ekskluzywnych dzielnic willowych — cisza, zieleń i pełna prywatność, a jednocześnie kilka minut od centrum, lotniska i międzynarodowej szkoły.",
+loc1b:"Centrum Warszawy",loc1v:"ok. 20 minut samochodem",loc2b:"Lotnisko Chopina",loc2v:"ok. 25 minut",loc3b:"Tereny zielone / las",loc3v:"w bezpośrednim sąsiedztwie",loc4b:"Otoczenie",loc4v:"prestiżowa dzielnica willowa",
 con_eyebrow:"Kontakt",con_h:"Umów prywatną prezentację",con_p:"Cena udostępniana na życzenie. Skontaktuj się z nami, aby otrzymać pełną dokumentację i umówić indywidualne oglądanie rezydencji.",
 con_phone:"Telefon",con_agency:"Agencja",con_ref:"Nr oferty",
 form_name:"Imię i nazwisko",form_email:"E-mail lub telefon",form_msg:"Wiadomość",form_msg_ph:"Jestem zainteresowany/a tą rezydencją...",form_send:"Wyślij zapytanie",
 foot_copy:"© 2026 ZOVU. Wszelkie prawa zastrzeżone.",foot_note:"Zdjęcia poglądowe. Ogłoszenie nie stanowi oferty w rozumieniu prawa."
 },
 ru:{
-brand:"Резиденция Барселона",brandsub:"Коллекция премиум-недвижимости",
+brand:"Резиденция Варшава",brandsub:"Коллекция премиум-недвижимости",
 nav_about:"Резиденция",nav_features:"Преимущества",nav_gallery:"Галерея",nav_location:"Расположение",nav_contact:"Контакты",nav_cta:"Узнать цену",
-hero_eyebrow:"Барселона · Холмы с видом на море",hero_title:"Дворцовая резиденция<br>над <i>Барселоной</i>",
-hero_lead:"Исключительная вилла в классическом стиле с бассейном инфинити, панорамой города и Средиземного моря. Мрамор, ручная резьба, крытый бассейн со спа.",
+hero_eyebrow:"Варшава · Престижный вилловый район",hero_title:"Дворцовая резиденция<br>под <i>Варшавой</i>",
+hero_lead:"Исключительная вилла в классическом стиле с бассейном инфинити, приватным садом и панорамой окрестностей. Мрамор, ручная резьба, крытый бассейн со спа.",
 hero_cta1:"Смотреть галерею",hero_cta2:"Записаться на показ",scroll:"Листайте",
-f1v:"800 м²",f1k:"Площадь дома",f2v:"1 500 м²",f2k:"Участок",f3v:"6",f3k:"Спальни",f4v:"7",f4k:"Санузлы",f5v:"2",f5k:"Бассейна",f6v:"180°",f6k:"Панорама",
+f1v:"800 м²",f1k:"Площадь дома",f2v:"1 500 м²",f2k:"Участок",f3v:"6",f3k:"Спальни",f4v:"7",f4k:"Санузлы",f5v:"2",f5k:"Бассейна",f6v:"24/7",f6k:"Охрана",
 about_eyebrow:"О резиденции",about_h:"Классическое величие,<br>современный комфорт",
-about_p1:"Резиденция расположена на одном из самых престижных холмов над Барселоной. <b>Каменный фасад, мансардная крыша и колоннады</b> придают ей облик дворца, а интерьеры сочетают мрамор, ручную резьбу по камню и новейшие технологии.",
-about_p2:"Двусветный холл с парадной лестницей, потолки «звёздное небо», <b>крытый бассейн со спа и зоной велнес</b>, а также внешний бассейн инфинити с видом на город и море — дом, созданный для жизни и приёма гостей на высшем уровне.",
+about_p1:"Резиденция расположена в одном из самых престижных вилловых районов под Варшавой. <b>Каменный фасад, мансардная крыша и колоннады</b> придают ей облик дворца, а интерьеры сочетают мрамор, ручную резьбу по камню и новейшие технологии.",
+about_p2:"Двусветный холл с парадной лестницей, потолки «звёздное небо», <b>крытый бассейн со спа и зоной велнес</b>, а также внешний бассейн инфинити и ухоженный сад — дом, созданный для жизни и приёма гостей на высшем уровне.",
 about_cta:"Смотреть интерьеры",about_tagv:"Дворцовый стиль",about_tagk:"Камень · мрамор · золото",
 feat_eyebrow:"Преимущества",feat_h:"Что делает её особенной",feat_p:"Каждая деталь продумана ради роскоши, приватности и ежедневного комфорта.",
-feat1h:"Бассейн инфинити",feat1p:"Внешний бассейн без края с панорамой Барселоны и Средиземного моря.",
+feat1h:"Бассейн инфинити",feat1p:"Внешний бассейн без края с видом на приватный сад и окрестности.",
 feat2h:"Крытый бассейн и спа",feat2p:"Внутренняя велнес-зона с подсвеченным бассейном и потолком «звёздное небо».",
-feat3h:"Вид на город и море",feat3p:"Резиденция на холме с открытой панорамой 180°.",
+feat3h:"Приватность и простор",feat3p:"Огороженный участок с воротами, ухоженным садом и террасами — полная приватность.",
 feat4h:"Мраморные интерьеры",feat4p:"Полированный мрамор, колонны и ручная резьба по камню — барельефы.",
 feat5h:"Парадный холл",feat5p:"Двусветная гостиная с лестницей, галереей и коваными балюстрадами.",
 feat6h:"Приватный сад",feat6p:"Ухоженная территория с газоном, террасами и зоной отдыха на воздухе.",
-gal_eyebrow:"Галерея",gal_h:"50 кадров резиденции",gal_p:"Нажмите на фото для увеличения. От дворцового фасада до бассейна со спа.",
-loc_eyebrow:"Расположение",loc_h:"Холмы над Барселоной",loc_p:"Один из самых эксклюзивных районов региона — тишина, зелень и приватность, и при этом всего несколько минут до центра города, пляжей и международной школы.",
-loc1b:"Центр Барселоны",loc1v:"около 15 минут на авто",loc2b:"Пляжи / море",loc2v:"около 15 минут",loc3b:"Аэропорт Эль-Прат",loc3v:"около 30 минут",loc4b:"Окружение",loc4v:"престижный вилловый район",
+gal_eyebrow:"Галерея",gal_h:"Избранные интерьеры",gal_p:"От дворцового фасада до крытого бассейна со спа — смотрите полную фотодокументацию резиденции.",gal_btn:"Открыть полную галерею",gal_over:"Полная галерея",gal_count:"50 фото",gal_page_p:"Нажмите на фото для увеличения. Стрелки или Esc для навигации.",gal_back:"Назад на главную",
+loc_eyebrow:"Расположение",loc_h:"Престижный район под Варшавой",loc_p:"Один из самых эксклюзивных вилловых районов — тишина, зелень и полная приватность, и при этом всего несколько минут до центра, аэропорта и международной школы.",
+loc1b:"Центр Варшавы",loc1v:"около 20 минут на авто",loc2b:"Аэропорт Шопена",loc2v:"около 25 минут",loc3b:"Зелёная зона / лес",loc3v:"в непосредственной близости",loc4b:"Окружение",loc4v:"престижный вилловый район",
 con_eyebrow:"Контакты",con_h:"Записаться на частный показ",con_p:"Цена предоставляется по запросу. Свяжитесь с нами, чтобы получить полную документацию и назначить индивидуальный просмотр резиденции.",
 con_phone:"Телефон",con_agency:"Агентство",con_ref:"№ объекта",
 form_name:"Имя и фамилия",form_email:"E-mail или телефон",form_msg:"Сообщение",form_msg_ph:"Меня интересует эта резиденция...",form_send:"Отправить запрос",
 foot_copy:"© 2026 ZOVU. Все права защищены.",foot_note:"Фотографии ознакомительные. Объявление не является публичной офертой."
 },
 en:{
-brand:"Barcelona Residence",brandsub:"Premium property collection",
+brand:"Warsaw Residence",brandsub:"Premium property collection",
 nav_about:"Residence",nav_features:"Highlights",nav_gallery:"Gallery",nav_location:"Location",nav_contact:"Contact",nav_cta:"Request price",
-hero_eyebrow:"Barcelona · Hills with sea views",hero_title:"A palatial residence<br>above <i>Barcelona</i>",
-hero_lead:"An exceptional classical villa with an infinity pool and sweeping views of the city and the Mediterranean. Marble, hand-carved detailing, indoor pool and spa.",
+hero_eyebrow:"Warsaw · Prestige villa district",hero_title:"A palatial residence<br>near <i>Warsaw</i>",
+hero_lead:"An exceptional classical villa with an infinity pool, private garden and sweeping views of the grounds. Marble, hand-carved detailing, indoor pool and spa.",
 hero_cta1:"View gallery",hero_cta2:"Book a viewing",scroll:"Scroll",
-f1v:"800 m²",f1k:"Built area",f2v:"1,500 m²",f2k:"Plot",f3v:"6",f3k:"Bedrooms",f4v:"7",f4k:"Bathrooms",f5v:"2",f5k:"Pools",f6v:"180°",f6k:"Panorama",
+f1v:"800 m²",f1k:"Built area",f2v:"1,500 m²",f2k:"Plot",f3v:"6",f3k:"Bedrooms",f4v:"7",f4k:"Bathrooms",f5v:"2",f5k:"Pools",f6v:"24/7",f6k:"Security",
 about_eyebrow:"The residence",about_h:"Classical grandeur,<br>modern comfort",
-about_p1:"The residence sits on one of the most prestigious hills above Barcelona. <b>A stone façade, mansard roof and colonnades</b> give it the presence of a palace, while the interiors blend marble, hand-carved stone reliefs and the latest technology.",
-about_p2:"A double-height hall with a grand staircase, starlit ceilings, <b>an indoor pool with spa and wellness area</b>, and an outdoor infinity pool overlooking the city and sea — a home built to live in and to entertain at the highest level.",
+about_p1:"The residence sits in one of the most prestigious villa districts near Warsaw. <b>A stone façade, mansard roof and colonnades</b> give it the presence of a palace, while the interiors blend marble, hand-carved stone reliefs and the latest technology.",
+about_p2:"A double-height hall with a grand staircase, starlit ceilings, <b>an indoor pool with spa and wellness area</b>, and an outdoor infinity pool with landscaped gardens — a home built to live in and to entertain at the highest level.",
 about_cta:"Explore interiors",about_tagv:"Palatial style",about_tagk:"Stone · marble · gold",
 feat_eyebrow:"Highlights",feat_h:"What makes it exceptional",feat_p:"Every detail is designed for luxury, privacy and effortless everyday comfort.",
-feat1h:"Infinity pool",feat1p:"An outdoor edgeless pool with panoramic views of Barcelona and the Mediterranean.",
+feat1h:"Infinity pool",feat1p:"An outdoor edgeless pool overlooking the private garden and grounds.",
 feat2h:"Indoor pool & spa",feat2p:"An indoor wellness area with an illuminated pool and a starlit ceiling.",
-feat3h:"City & sea views",feat3p:"Set on a hillside with unobstructed 180° panoramas.",
+feat3h:"Privacy & space",feat3p:"A gated, fenced plot with landscaped gardens and terraces — complete discretion.",
 feat4h:"Marble interiors",feat4p:"Polished marble, columns and hand-carved stone relief walls.",
 feat5h:"Grand hall",feat5p:"A double-height living space with staircase, gallery and wrought-iron balustrades.",
 feat6h:"Private garden",feat6p:"Landscaped grounds with lawn, terraces and an outdoor lounge area.",
-gal_eyebrow:"Gallery",gal_h:"50 frames of the residence",gal_p:"Click any photo to enlarge. From the palatial façade to the pool and spa.",
-loc_eyebrow:"Location",loc_h:"The hills above Barcelona",loc_p:"One of the region's most exclusive areas — quiet, green and private, yet just minutes from the city centre, the beaches and international schooling.",
-loc1b:"Barcelona centre",loc1v:"approx. 15 minutes by car",loc2b:"Beaches / sea",loc2v:"approx. 15 minutes",loc3b:"El Prat airport",loc3v:"approx. 30 minutes",loc4b:"Surroundings",loc4v:"prestigious villa district",
+gal_eyebrow:"Gallery",gal_h:"Selected interiors",gal_p:"From the palatial façade to the indoor pool and spa — view the full photographic documentation of the residence.",gal_btn:"Open full gallery",gal_over:"Full gallery",gal_count:"50 photos",gal_page_p:"Click any photo to enlarge. Arrow keys or Esc to navigate.",gal_back:"Back to home",
+loc_eyebrow:"Location",loc_h:"A prestige district near Warsaw",loc_p:"One of the most exclusive villa districts — quiet, green and completely private, yet just minutes from the city centre, the airport and international schooling.",
+loc1b:"Warsaw centre",loc1v:"approx. 20 minutes by car",loc2b:"Chopin Airport",loc2v:"approx. 25 minutes",loc3b:"Greenery / forest",loc3v:"in the immediate vicinity",loc4b:"Surroundings",loc4v:"prestigious villa district",
 con_eyebrow:"Contact",con_h:"Arrange a private viewing",con_p:"Price on request. Get in touch to receive the full dossier and to arrange a private viewing of the residence.",
 con_phone:"Phone",con_agency:"Agency",con_ref:"Ref. no.",
 form_name:"Full name",form_email:"E-mail or phone",form_msg:"Message",form_msg_ph:"I'm interested in this residence...",form_send:"Send enquiry",
@@ -461,27 +475,6 @@ addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
 const navlinks=document.getElementById('navlinks');
 document.getElementById('burger').addEventListener('click',()=>navlinks.classList.toggle('open'));
 navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navlinks.classList.remove('open')));
-
-/* ===== gallery ===== */
-const N=50;const grid=document.getElementById('gallery-grid');
-let items='';
-for(let i=1;i<=N;i++){
-  items+=`<div class="gitem" data-i="${i}"><img loading="lazy" src="assets/thumb/${i}.jpg" alt="Rezydencja ${i}"><span class="plus">+</span></div>`;
-}
-grid.innerHTML=items;
-
-/* ===== lightbox ===== */
-const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount');
-let cur=1;
-function openLB(i){cur=i;lbImg.src=`assets/full/${i}.jpg`;lbCount.textContent=`${i} / ${N}`;lb.classList.add('open');document.body.style.overflow='hidden';}
-function closeLB(){lb.classList.remove('open');document.body.style.overflow='';}
-function nav(d){cur=((cur-1+d+N)%N)+1;lbImg.src=`assets/full/${cur}.jpg`;lbCount.textContent=`${cur} / ${N}`;}
-grid.querySelectorAll('.gitem').forEach(el=>el.addEventListener('click',()=>openLB(+el.dataset.i)));
-document.getElementById('lbClose').addEventListener('click',closeLB);
-document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();nav(-1)});
-document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();nav(1)});
-lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
-addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')nav(-1);if(e.key==='ArrowRight')nav(1);});
 
 /* ===== reveal ===== */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
