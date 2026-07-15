@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rezydencja — Barcelona | Luksusowa willa na sprzedaż</title>
-<meta name="description" content="Ekskluzywna rezydencja w stylu pałacowym nad Barceloną. Basen infinity z widokiem na miasto i morze, kryty basen ze spa, marmurowe wnętrza.">
+<title>Residencia Barcelona | Villa de lujo en venta</title>
+<meta name="description" content="Exclusiva residencia de estilo palaciego sobre Barcelona. Piscina infinita con vistas a la ciudad y al mar, piscina cubierta con spa, interiores de mármol.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -230,8 +230,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
     </nav>
     <div class="nav-right">
       <div class="lang" id="lang">
-        <button data-lang="pl" class="active">PL</button>
-        <button data-lang="ru">RU</button>
+        <button data-lang="es" class="active">ES</button>
         <button data-lang="en">EN</button>
       </div>
       <a href="#contact" class="btn btn-gold" data-i18n="nav_cta" style="padding:11px 22px">Zapytaj o cenę</a>
@@ -379,57 +378,31 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
 <script>
 /* ===== i18n ===== */
 const I18N={
-pl:{
-brand:"Rezydencja Barcelona",brandsub:"Kolekcja nieruchomości premium",
-nav_about:"Rezydencja",nav_features:"Atuty",nav_gallery:"Galeria",nav_location:"Lokalizacja",nav_contact:"Kontakt",nav_cta:"Zapytaj o cenę",
-hero_eyebrow:"Barcelona · Wzgórza z widokiem na morze",hero_title:"Pałacowa rezydencja<br>ponad <i>Barceloną</i>",
-hero_lead:"Wyjątkowa willa w stylu klasycznym z basenem infinity, panoramą miasta i Morza Śródziemnego. Marmur, ręcznie rzeźbione detale, kryty basen ze spa.",
-hero_cta1:"Zobacz galerię",hero_cta2:"Umów prezentację",scroll:"Przewiń",
-f1v:"800 m²",f1k:"Powierzchnia",f2v:"1 500 m²",f2k:"Działka",f3v:"6",f3k:"Sypialnie",f4v:"7",f4k:"Łazienki",f5v:"2",f5k:"Baseny",f6v:"180°",f6k:"Panorama",
-about_eyebrow:"O rezydencji",about_h:"Klasyczny majestat,<br>współczesny komfort",
-about_p1:"Rezydencja wznosi się na jednym z najbardziej prestiżowych wzgórz nad Barceloną. <b>Kamienna elewacja, mansardowy dach i kolumnady</b> nadają jej charakter pałacu, a wnętrza łączą marmur, ręcznie rzeźbione płaskorzeźby i najnowsze technologie.",
-about_p2:"Dwukondygnacyjny hol z reprezentacyjnymi schodami, sufity z „gwiaździstym niebem\", <b>kryty basen ze spa i strefą wellness</b> oraz zewnętrzny basen infinity z widokiem na miasto i morze — to dom stworzony do życia i przyjmowania gości na najwyższym poziomie.",
-about_cta:"Poznaj wnętrza",about_tagv:"Styl pałacowy",about_tagk:"Kamień · marmur · złoto",
-feat_eyebrow:"Atuty",feat_h:"To, co czyni ją wyjątkową",feat_p:"Każdy detal został zaprojektowany z myślą o luksusie, prywatności i codziennym komforcie.",
-feat1h:"Basen infinity",feat1p:"Zewnętrzny basen bez krawędzi z panoramą Barcelony i Morza Śródziemnego.",
-feat2h:"Kryty basen i spa",feat2p:"Wewnętrzna strefa wellness z podświetlanym basenem i sufitem „gwiaździste niebo\".",
-feat3h:"Widok na miasto i morze",feat3p:"Rezydencja położona na wzgórzu z niezakłóconą panoramą 180°.",
-feat4h:"Marmurowe wnętrza",feat4p:"Polerowany marmur, kolumny i ręcznie rzeźbione kamienne płaskorzeźby.",
-feat5h:"Reprezentacyjny hol",feat5p:"Dwukondygnacyjny salon ze schodami i galerią oraz kutymi balustradami.",
-feat6h:"Prywatny ogród",feat6p:"Zadbany teren z trawnikiem, tarasami i strefą wypoczynku na świeżym powietrzu.",
-gal_eyebrow:"Galeria",gal_h:"Wybrane wnętrza",gal_p:"Od pałacowej elewacji po kryty basen ze spa — zobacz pełną dokumentację fotograficzną rezydencji.",gal_btn:"Zobacz pełną galerię",gal_over:"Pełna galeria",gal_count:"50 zdjęć",gal_page_p:"Kliknij zdjęcie, aby powiększyć. Strzałki lub Esc do nawigacji.",gal_back:"Powrót do strony głównej",
-loc_eyebrow:"Lokalizacja",loc_h:"Wzgórza nad Barceloną",loc_p:"Jedna z najbardziej ekskluzywnych okolic w regionie — cisza, zieleń i prywatność, a jednocześnie kilka minut od centrum miasta, plaż i międzynarodowej szkoły.",
-loc1b:"Centrum Barcelony",loc1v:"ok. 15 minut samochodem",loc2b:"Plaże / morze",loc2v:"ok. 15 minut",loc3b:"Lotnisko El Prat",loc3v:"ok. 30 minut",loc4b:"Otoczenie",loc4v:"prestiżowa dzielnica willowa",
-con_eyebrow:"Kontakt",con_h:"Umów prywatną prezentację",con_p:"Cena udostępniana na życzenie. Skontaktuj się z nami, aby otrzymać pełną dokumentację i umówić indywidualne oglądanie rezydencji.",
-con_phone:"Telefon",con_agency:"Agencja",con_ref:"Nr oferty",
-form_name:"Imię i nazwisko",form_email:"E-mail lub telefon",form_msg:"Wiadomość",form_msg_ph:"Jestem zainteresowany/a tą rezydencją...",form_send:"Wyślij zapytanie",
-foot_copy:"© 2026 ZOVU. Wszelkie prawa zastrzeżone.",foot_note:"Zdjęcia poglądowe. Ogłoszenie nie stanowi oferty w rozumieniu prawa."
-},
-ru:{
-brand:"Резиденция Барселона",brandsub:"Коллекция премиум-недвижимости",
-nav_about:"Резиденция",nav_features:"Преимущества",nav_gallery:"Галерея",nav_location:"Расположение",nav_contact:"Контакты",nav_cta:"Узнать цену",
-hero_eyebrow:"Барселона · Холмы с видом на море",hero_title:"Дворцовая резиденция<br>над <i>Барселоной</i>",
-hero_lead:"Исключительная вилла в классическом стиле с бассейном инфинити, панорамой города и Средиземного моря. Мрамор, ручная резьба, крытый бассейн со спа.",
-hero_cta1:"Смотреть галерею",hero_cta2:"Записаться на показ",scroll:"Листайте",
-f1v:"800 м²",f1k:"Площадь дома",f2v:"1 500 м²",f2k:"Участок",f3v:"6",f3k:"Спальни",f4v:"7",f4k:"Санузлы",f5v:"2",f5k:"Бассейна",f6v:"180°",f6k:"Панорама",
-about_eyebrow:"О резиденции",about_h:"Классическое величие,<br>современный комфорт",
-about_p1:"Резиденция расположена на одном из самых престижных холмов над Барселоной. <b>Каменный фасад, мансардная крыша и колоннады</b> придают ей облик дворца, а интерьеры сочетают мрамор, ручную резьбу по камню и новейшие технологии.",
-about_p2:"Двусветный холл с парадной лестницей, потолки «звёздное небо», <b>крытый бассейн со спа и зоной велнес</b>, а также внешний бассейн инфинити с видом на город и море — дом, созданный для жизни и приёма гостей на высшем уровне.",
-about_cta:"Смотреть интерьеры",about_tagv:"Дворцовый стиль",about_tagk:"Камень · мрамор · золото",
-feat_eyebrow:"Преимущества",feat_h:"Что делает её особенной",feat_p:"Каждая деталь продумана ради роскоши, приватности и ежедневного комфорта.",
-feat1h:"Бассейн инфинити",feat1p:"Внешний бассейн без края с панорамой Барселоны и Средиземного моря.",
-feat2h:"Крытый бассейн и спа",feat2p:"Внутренняя велнес-зона с подсвеченным бассейном и потолком «звёздное небо».",
-feat3h:"Вид на город и море",feat3p:"Резиденция на холме с открытой панорамой 180°.",
-feat4h:"Мраморные интерьеры",feat4p:"Полированный мрамор, колонны и ручная резьба по камню — барельефы.",
-feat5h:"Парадный холл",feat5p:"Двусветная гостиная с лестницей, галереей и коваными балюстрадами.",
-feat6h:"Приватный сад",feat6p:"Ухоженная территория с газоном, террасами и зоной отдыха на воздухе.",
-gal_eyebrow:"Галерея",gal_h:"Избранные интерьеры",gal_p:"От дворцового фасада до крытого бассейна со спа — смотрите полную фотодокументацию резиденции.",gal_btn:"Открыть полную галерею",gal_over:"Полная галерея",gal_count:"50 фото",gal_page_p:"Нажмите на фото для увеличения. Стрелки или Esc для навигации.",gal_back:"Назад на главную",
-loc_eyebrow:"Расположение",loc_h:"Холмы над Барселоной",loc_p:"Один из самых эксклюзивных районов региона — тишина, зелень и приватность, и при этом всего несколько минут до центра города, пляжей и международной школы.",
-loc1b:"Центр Барселоны",loc1v:"около 15 минут на авто",loc2b:"Пляжи / море",loc2v:"около 15 минут",loc3b:"Аэропорт Эль-Прат",loc3v:"около 30 минут",loc4b:"Окружение",loc4v:"престижный вилловый район",
-con_eyebrow:"Контакты",con_h:"Записаться на частный показ",con_p:"Цена предоставляется по запросу. Свяжитесь с нами, чтобы получить полную документацию и назначить индивидуальный просмотр резиденции.",
-con_phone:"Телефон",con_agency:"Агентство",con_ref:"№ объекта",
-form_name:"Имя и фамилия",form_email:"E-mail или телефон",form_msg:"Сообщение",form_msg_ph:"Меня интересует эта резиденция...",form_send:"Отправить запрос",
-foot_copy:"© 2026 ZOVU. Все права защищены.",foot_note:"Фотографии ознакомительные. Объявление не является публичной офертой."
+es:{
+brand:"Residencia Barcelona",brandsub:"Colección de propiedades premium",
+nav_about:"Residencia",nav_features:"Características",nav_gallery:"Galería",nav_location:"Ubicación",nav_contact:"Contacto",nav_cta:"Solicitar precio",
+hero_eyebrow:"Barcelona · Colinas con vistas al mar",hero_title:"Una residencia palaciega<br>sobre <i>Barcelona</i>",
+hero_lead:"Una villa clásica excepcional con piscina infinita y amplias vistas a la ciudad y al Mediterráneo. Mármol, detalles tallados a mano, piscina cubierta y spa.",
+hero_cta1:"Ver galería",hero_cta2:"Reservar una visita",scroll:"Desliza",
+f1v:"800 m²",f1k:"Superficie construida",f2v:"1.500 m²",f2k:"Parcela",f3v:"6",f3k:"Dormitorios",f4v:"7",f4k:"Baños",f5v:"2",f5k:"Piscinas",f6v:"180°",f6k:"Panorámica",
+about_eyebrow:"La residencia",about_h:"Grandeza clásica,<br>confort moderno",
+about_p1:"La residencia se alza en una de las colinas más prestigiosas sobre Barcelona. <b>Una fachada de piedra, tejado abuhardillado y columnatas</b> le confieren la presencia de un palacio, mientras que los interiores combinan mármol, relieves de piedra tallados a mano y la tecnología más avanzada.",
+about_p2:"Un vestíbulo de doble altura con una gran escalera, techos con cielo estrellado, <b>una piscina cubierta con spa y zona wellness</b> y una piscina infinita exterior con vistas a la ciudad y al mar: una casa creada para vivir y recibir al más alto nivel.",
+about_cta:"Descubrir interiores",about_tagv:"Estilo palaciego",about_tagk:"Piedra · mármol · oro",
+feat_eyebrow:"Características",feat_h:"Lo que la hace excepcional",feat_p:"Cada detalle está pensado para el lujo, la privacidad y el confort del día a día.",
+feat1h:"Piscina infinita",feat1p:"Una piscina exterior desbordante con vistas panorámicas a Barcelona y al Mediterráneo.",
+feat2h:"Piscina cubierta y spa",feat2p:"Una zona wellness interior con piscina iluminada y techo de cielo estrellado.",
+feat3h:"Vistas a la ciudad y al mar",feat3p:"Situada en una ladera con panorámicas despejadas de 180°.",
+feat4h:"Interiores de mármol",feat4p:"Mármol pulido, columnas y paredes con relieves de piedra tallados a mano.",
+feat5h:"Gran vestíbulo",feat5p:"Un espacio de doble altura con escalera, galería y balaustradas de hierro forjado.",
+feat6h:"Jardín privado",feat6p:"Terreno ajardinado con césped, terrazas y zona chill-out exterior.",
+gal_eyebrow:"Galería",gal_h:"Interiores seleccionados",gal_p:"Desde la fachada palaciega hasta la piscina cubierta y el spa: consulta el reportaje fotográfico completo de la residencia.",gal_btn:"Ver galería completa",gal_over:"Galería completa",gal_count:"50 fotos",gal_page_p:"Haz clic en cualquier foto para ampliarla. Flechas o Esc para navegar.",gal_back:"Volver al inicio",
+loc_eyebrow:"Ubicación",loc_h:"Las colinas sobre Barcelona",loc_p:"Una de las zonas más exclusivas de la región: tranquila, verde y privada, y a solo minutos del centro de la ciudad, las playas y colegios internacionales.",
+loc1b:"Centro de Barcelona",loc1v:"aprox. 15 minutos en coche",loc2b:"Playas / mar",loc2v:"aprox. 15 minutos",loc3b:"Aeropuerto de El Prat",loc3v:"aprox. 30 minutos",loc4b:"Entorno",loc4v:"prestigiosa zona residencial",
+con_eyebrow:"Contacto",con_h:"Concierta una visita privada",con_p:"Precio a consultar. Contacta con nosotros para recibir el dossier completo y concertar una visita privada de la residencia.",
+con_phone:"Teléfono",con_agency:"Agencia",con_ref:"Ref.",
+form_name:"Nombre completo",form_email:"E-mail o teléfono",form_msg:"Mensaje",form_msg_ph:"Estoy interesado/a en esta residencia...",form_send:"Enviar consulta",
+foot_copy:"© 2026 ZOVU. Todos los derechos reservados.",foot_note:"Fotos orientativas. Este anuncio no constituye una oferta vinculante."
 },
 en:{
 brand:"Barcelona Residence",brandsub:"Premium property collection",
@@ -469,7 +442,7 @@ function applyLang(lang){
   try{localStorage.setItem('rez_lang',lang)}catch(e){}
 }
 document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
-applyLang((()=>{try{return localStorage.getItem('rez_lang')}catch(e){return null}})()||'pl');
+applyLang((()=>{try{return localStorage.getItem('rez_lang')}catch(e){return null}})()||'es');
 
 /* ===== nav scroll + burger ===== */
 const hdr=document.getElementById('hdr');
@@ -483,7 +456,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ===== form ===== */
-function sendForm(e){e.preventDefault();const l=document.documentElement.lang;const msg={pl:"Dziękujemy! Skontaktujemy się wkrótce.",ru:"Спасибо! Мы скоро свяжемся с вами.",en:"Thank you! We will contact you shortly."};alert(msg[l]||msg.pl);e.target.reset();return false;}
+function sendForm(e){e.preventDefault();const l=document.documentElement.lang;const msg={es:"¡Gracias! Nos pondremos en contacto pronto.",en:"Thank you! We will contact you shortly."};alert(msg[l]||msg.es);e.target.reset();return false;}
 </script>
 </body>
 </html>

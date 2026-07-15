@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galeria — Rezydencja Barcelona</title>
-<meta name="description" content="Pełna galeria zdjęć luksusowej rezydencji nad Barceloną.">
+<title>Galería — Residencia Barcelona</title>
+<meta name="description" content="Galería completa de fotos de la residencia de lujo sobre Barcelona.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -90,8 +90,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:34px 0}
     </nav>
     <div class="nav-right">
       <div class="lang" id="lang">
-        <button data-lang="pl" class="active">PL</button>
-        <button data-lang="ru">RU</button>
+        <button data-lang="es" class="active">ES</button>
         <button data-lang="en">EN</button>
       </div>
     </div>
@@ -125,8 +124,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:34px 0}
 
 <script>
 const I18N={
-pl:{brand:"Rezydencja Barcelona",brandsub:"Kolekcja nieruchomości premium",nav_about:"Rezydencja",nav_features:"Atuty",nav_gallery:"Galeria",nav_location:"Lokalizacja",nav_contact:"Kontakt",gal_eyebrow:"Galeria",gal_h:"Galeria rezydencji",gal_page_p:"Kliknij zdjęcie, aby powiększyć. Strzałki lub Esc do nawigacji.",gal_back:"Powrót do strony głównej",foot_copy:"© 2026 ZOVU. Wszelkie prawa zastrzeżone."},
-ru:{brand:"Резиденция Барселона",brandsub:"Коллекция премиум-недвижимости",nav_about:"Резиденция",nav_features:"Преимущества",nav_gallery:"Галерея",nav_location:"Расположение",nav_contact:"Контакты",gal_eyebrow:"Галерея",gal_h:"Галерея резиденции",gal_page_p:"Нажмите на фото для увеличения. Стрелки или Esc для навигации.",gal_back:"Назад на главную",foot_copy:"© 2026 ZOVU. Все права защищены."},
+es:{brand:"Residencia Barcelona",brandsub:"Colección de propiedades premium",nav_about:"Residencia",nav_features:"Características",nav_gallery:"Galería",nav_location:"Ubicación",nav_contact:"Contacto",gal_eyebrow:"Galería",gal_h:"Galería de la residencia",gal_page_p:"Haz clic en cualquier foto para ampliarla. Flechas o Esc para navegar.",gal_back:"Volver al inicio",foot_copy:"© 2026 ZOVU. Todos los derechos reservados."},
 en:{brand:"Barcelona Residence",brandsub:"Premium property collection",nav_about:"Residence",nav_features:"Highlights",nav_gallery:"Gallery",nav_location:"Location",nav_contact:"Contact",gal_eyebrow:"Gallery",gal_h:"Residence gallery",gal_page_p:"Click any photo to enlarge. Arrow keys or Esc to navigate.",gal_back:"Back to home",foot_copy:"© 2026 ZOVU. All rights reserved."}
 };
 function applyLang(lang){const d=I18N[lang];if(!d)return;document.documentElement.lang=lang;
@@ -134,7 +132,7 @@ function applyLang(lang){const d=I18N[lang];if(!d)return;document.documentElemen
   document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
   try{localStorage.setItem('rez_lang',lang)}catch(e){}}
 document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
-applyLang((()=>{try{return localStorage.getItem('rez_lang')}catch(e){return null}})()||'pl');
+applyLang((()=>{try{return localStorage.getItem('rez_lang')}catch(e){return null}})()||'es');
 
 /* order: lead with the strongest shots, then the rest */
 const ORDER=[49,31,25,45,1,17,24,44,50,42,41,36,16,11,9,2,43,46,39,40,10,38,37,33,30,35,23,20,26,27,29,12,13,22,15,8,18,19,21,28,32,34,47,48,3,4,5,6,7,14];
