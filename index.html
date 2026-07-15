@@ -107,6 +107,27 @@ section.blk{padding:110px 0}
 .feat h3{font-size:22px;margin-bottom:12px}
 .feat p{color:var(--muted);font-size:15px;font-weight:300}
 
+/* MOSAIC — photo highlights */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:14px}
+.mtile{position:relative;overflow:hidden;border-radius:2px;display:flex;align-items:flex-end;text-decoration:none}
+.mtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.8s cubic-bezier(.2,.7,.2,1);filter:saturate(.98)}
+.mtile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.8),rgba(8,9,11,.05) 55%);transition:.45s}
+.mtile:hover img{transform:scale(1.07)}
+.mtile:hover::after{background:linear-gradient(0deg,rgba(8,9,11,.72),rgba(201,168,106,.08) 60%)}
+.mtile.big{grid-column:span 2;grid-row:span 2}
+.mtile .mlabel{position:relative;z-index:2;padding:22px 24px;display:flex;align-items:center;gap:12px}
+.mtile .mlabel::before{content:"";width:22px;height:1px;background:var(--gold2);flex-shrink:0;transition:.4s}
+.mtile:hover .mlabel::before{width:40px}
+.mtile .mlabel b{font-family:var(--serif);font-size:21px;color:#fff;font-weight:500;line-height:1.15}
+.mtile.big .mlabel b{font-size:clamp(26px,3vw,38px)}
+
+/* SHOWBAND — full-bleed cinematic photo */
+.showband{position:relative;min-height:84vh;display:flex;align-items:center;background:var(--img) center/cover no-repeat;background-attachment:fixed}
+.showband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.78),rgba(8,9,11,.28) 58%,rgba(8,9,11,.05))}
+.showband-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 32px;width:100%}
+.showband .eyebrow{display:block;margin-bottom:16px}
+.showband h2{font-size:clamp(30px,4.4vw,56px);max-width:660px;color:#fff}
+
 /* GALLERY */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .gitem{position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--panel);aspect-ratio:4/3}
@@ -210,6 +231,12 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
   .hero{padding-bottom:14vh}
   .lb-nav{width:44px;height:44px}
   .lb-prev{left:10px}.lb-next{right:10px}
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
+  .mtile.big{grid-column:span 2;grid-row:span 2}
+  .mtile .mlabel{padding:16px 18px}
+  .mtile .mlabel b{font-size:17px}
+  .mtile.big .mlabel b{font-size:24px}
+  .showband{background-attachment:scroll;min-height:60vh}
 }
 </style>
 </head>
@@ -271,8 +298,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
       <span class="eyebrow" data-i18n="about_eyebrow">O rezydencji</span>
       <h2 data-i18n-html="about_h" style="margin-top:16px">Klasyczny majestat,<br>współczesny komfort</h2>
       <p data-i18n-html="about_p1">Rezydencja wznosi się na jednym z najbardziej prestiżowych wzgórz nad Barceloną. <b>Kamienna elewacja, mansardowy dach i kolumnady</b> nadają jej charakter pałacu, a wnętrza łączą marmur, ręcznie rzeźbione płaskorzeźby i najnowsze technologie.</p>
-      <p data-i18n-html="about_p2">Dwukondygnacyjny hol z reprezentacyjnymi schodami, sufity z „gwiaździstym niebem", <b>kryty basen ze spa i strefą wellness</b> oraz zewnętrzny basen infinity z widokiem na miasto i morze — to dom stworzony do życia i przyjmowania gości na najwyższym poziomie.</p>
-      <a href="#gallery" class="btn btn-ghost" style="margin-top:14px" data-i18n="about_cta">Poznaj wnętrza</a>
+      <a href="#gallery" class="btn btn-ghost" style="margin-top:22px" data-i18n="about_cta">Poznaj wnętrza</a>
     </div>
     <div class="media reveal">
       <img src="assets/full/35.jpg" alt="Elewacja rezydencji">
@@ -283,14 +309,43 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
 
 <section class="blk" id="features" style="background:var(--bg2)">
   <div class="wrap">
-    <div class="feat-grid reveal">
-      <div class="feat"><div class="ic">◈</div><h3 data-i18n="feat1h">Basen infinity</h3><p data-i18n="feat1p">Zewnętrzny basen bez krawędzi z panoramą Barcelony i Morza Śródziemnego.</p></div>
-      <div class="feat"><div class="ic">❋</div><h3 data-i18n="feat2h">Kryty basen i spa</h3><p data-i18n="feat2p">Wewnętrzna strefa wellness z podświetlanym basenem i sufitem „gwiaździste niebo".</p></div>
-      <div class="feat"><div class="ic">▲</div><h3 data-i18n="feat3h">Widok na miasto i morze</h3><p data-i18n="feat3p">Rezydencja położona na wzgórzu z niezakłóconą panoramą 180°.</p></div>
-      <div class="feat"><div class="ic">✦</div><h3 data-i18n="feat4h">Marmurowe wnętrza</h3><p data-i18n="feat4p">Polerowany marmur, kolumny i ręcznie rzeźbione kamienne płaskorzeźby.</p></div>
-      <div class="feat"><div class="ic">⛬</div><h3 data-i18n="feat5h">Reprezentacyjny hol</h3><p data-i18n="feat5p">Dwukondygnacyjny salon ze schodami i galerią oraz kutymi balustradami.</p></div>
-      <div class="feat"><div class="ic">✧</div><h3 data-i18n="feat6h">Prywatny ogród</h3><p data-i18n="feat6p">Zadbany teren z trawnikiem, tarasami i strefą wypoczynku na świeżym powietrzu.</p></div>
+    <div class="sec-head reveal" style="max-width:760px;margin:0 auto 44px;text-align:center">
+      <span class="eyebrow" data-i18n="feat_eyebrow">Características</span>
+      <h2 data-i18n="feat_h" style="margin-top:16px">Lo que la hace excepcional</h2>
     </div>
+    <div class="mosaic reveal">
+      <a href="gallery.html" class="mtile big" aria-label="Piscina infinita">
+        <img loading="lazy" src="assets/full/6.jpg" alt="Piscina infinita con vistas a la ciudad">
+        <span class="mlabel"><b data-i18n="feat1h">Piscina infinita</b></span>
+      </a>
+      <a href="gallery.html" class="mtile" aria-label="Piscina cubierta y spa">
+        <img loading="lazy" src="assets/thumb/17.jpg" alt="Piscina cubierta con cielo estrellado">
+        <span class="mlabel"><b data-i18n="feat2h">Piscina cubierta y spa</b></span>
+      </a>
+      <a href="gallery.html" class="mtile" aria-label="Vistas a la ciudad y al mar">
+        <img loading="lazy" src="assets/thumb/50.jpg" alt="Vistas a Barcelona y al mar">
+        <span class="mlabel"><b data-i18n="feat3h">Vistas ciudad y mar</b></span>
+      </a>
+      <a href="gallery.html" class="mtile" aria-label="Interiores de mármol">
+        <img loading="lazy" src="assets/thumb/23.jpg" alt="Interiores de mármol con relieves tallados">
+        <span class="mlabel"><b data-i18n="feat4h">Interiores de mármol</b></span>
+      </a>
+      <a href="gallery.html" class="mtile" aria-label="Gran vestíbulo">
+        <img loading="lazy" src="assets/thumb/45.jpg" alt="Gran vestíbulo con escalera">
+        <span class="mlabel"><b data-i18n="feat5h">Gran vestíbulo</b></span>
+      </a>
+      <a href="gallery.html" class="mtile" aria-label="Jardín privado">
+        <img loading="lazy" src="assets/thumb/42.jpg" alt="Jardín privado con césped y pinos">
+        <span class="mlabel"><b data-i18n="feat6h">Jardín privado</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="showband reveal" style="--img:url('assets/full/2.jpg')">
+  <div class="showband-in">
+    <span class="eyebrow" data-i18n="band_eyebrow">Wellness</span>
+    <h2 data-i18n="band_h">Piscina cubierta, spa y cielo estrellado.</h2>
   </div>
 </section>
 
@@ -390,6 +445,7 @@ about_p1:"La residencia se alza en una de las colinas más prestigiosas sobre Ba
 about_p2:"Un vestíbulo de doble altura con una gran escalera, techos con cielo estrellado, <b>una piscina cubierta con spa y zona wellness</b> y una piscina infinita exterior con vistas a la ciudad y al mar: una casa creada para vivir y recibir al más alto nivel.",
 about_cta:"Descubrir interiores",about_tagv:"Estilo palaciego",about_tagk:"Piedra · mármol · oro",
 feat_eyebrow:"Características",feat_h:"Lo que la hace excepcional",feat_p:"Cada detalle está pensado para el lujo, la privacidad y el confort del día a día.",
+band_eyebrow:"Wellness",band_h:"Piscina cubierta, spa y cielo estrellado.",
 feat1h:"Piscina infinita",feat1p:"Una piscina exterior desbordante con vistas panorámicas a Barcelona y al Mediterráneo.",
 feat2h:"Piscina cubierta y spa",feat2p:"Una zona wellness interior con piscina iluminada y techo de cielo estrellado.",
 feat3h:"Vistas a la ciudad y al mar",feat3p:"Situada en una ladera con panorámicas despejadas de 180°.",
@@ -416,6 +472,7 @@ about_p1:"The residence sits on one of the most prestigious hills above Barcelon
 about_p2:"A double-height hall with a grand staircase, starlit ceilings, <b>an indoor pool with spa and wellness area</b>, and an outdoor infinity pool overlooking the city and sea — a home built to live in and to entertain at the highest level.",
 about_cta:"Explore interiors",about_tagv:"Palatial style",about_tagk:"Stone · marble · gold",
 feat_eyebrow:"Highlights",feat_h:"What makes it exceptional",feat_p:"Every detail is designed for luxury, privacy and effortless everyday comfort.",
+band_eyebrow:"Wellness",band_h:"Indoor pool, spa and a starlit ceiling.",
 feat1h:"Infinity pool",feat1p:"An outdoor edgeless pool with panoramic views of Barcelona and the Mediterranean.",
 feat2h:"Indoor pool & spa",feat2p:"An indoor wellness area with an illuminated pool and a starlit ceiling.",
 feat3h:"City & sea views",feat3p:"Set on a hillside with unobstructed 180° panoramas.",
