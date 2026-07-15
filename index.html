@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezydencja — Barcelona | Luksusowa willa na sprzedaż</title>
+<meta name="description" content="Ekskluzywna rezydencja w stylu pałacowym nad Barceloną. Basen infinity z widokiem na miasto i morze, kryty basen ze spa, marmurowe wnętrza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0c0d0f;
+  --bg2:#131417;
+  --panel:#16181c;
+  --ink:#f2eee5;
+  --muted:#a9a396;
+  --line:rgba(201,168,106,.22);
+  --gold:#c9a86a;
+  --gold2:#e4cf9c;
+  --stone:#8a8378;
+  --shadow:0 30px 80px rgba(0,0,0,.5);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Manrope',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:2px;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.35s;border:1px solid transparent}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1408}
+.btn-gold:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:22px 0}
+header.scrolled{background:rgba(10,11,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.02em}
+.brand span{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-top:5px}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:13px;letter-spacing:.08em;color:var(--muted);transition:.25s;font-weight:500}
+.nav-links a:hover{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.lang{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.lang button{background:none;border:none;color:var(--muted);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;padding:7px 11px;cursor:pointer;transition:.25s}
+.lang button.active{background:var(--gold);color:#1a1408}
+.lang button:hover:not(.active){color:var(--ink)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding-bottom:9vh}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.55) 0%,rgba(8,9,11,.15) 35%,rgba(8,9,11,.7) 80%,rgba(8,9,11,.96) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero .eyebrow{margin-bottom:20px}
+.hero h1{font-size:clamp(42px,7vw,86px);letter-spacing:-.01em;margin-bottom:22px}
+.hero h1 i{font-style:italic;color:var(--gold2)}
+.hero p.lead{font-size:clamp(16px,1.6vw,20px);color:#e8e3d8;max-width:600px;font-weight:300;margin-bottom:34px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:"";width:1px;height:40px;background:linear-gradient(var(--gold),transparent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* FACTS BAR */
+.facts{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+.fact{padding:34px 22px;text-align:center;border-right:1px solid var(--line)}
+.fact:last-child{border-right:none}
+.fact .v{font-family:var(--serif);font-size:32px;color:var(--gold2);line-height:1}
+.fact .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* SECTION */
+section.blk{padding:110px 0}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head .eyebrow{margin-bottom:18px;display:block}
+.sec-head h2{font-size:clamp(30px,4vw,50px)}
+.sec-head p{color:var(--muted);font-size:17px;margin-top:20px;font-weight:300}
+
+/* INTRO split */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.split .txt h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:24px}
+.split .txt p{color:var(--muted);margin-bottom:18px;font-weight:300;font-size:16px}
+.split .txt p b{color:var(--ink);font-weight:500}
+.split .media{position:relative}
+.split .media img{width:100%;height:560px;object-fit:cover;border-radius:2px;box-shadow:var(--shadow)}
+.split .media .tag{position:absolute;bottom:-1px;left:-1px;background:var(--bg);padding:18px 26px;border:1px solid var(--line)}
+.split .media .tag b{font-family:var(--serif);color:var(--gold2);font-size:20px;display:block}
+.split .media .tag span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.feat{background:var(--bg);padding:40px 34px;transition:.35s}
+.feat:hover{background:var(--panel)}
+.feat .ic{width:40px;height:40px;color:var(--gold);margin-bottom:20px}
+.feat h3{font-size:22px;margin-bottom:12px}
+.feat p{color:var(--muted);font-size:15px;font-weight:300}
+
+/* GALLERY */
+.gallery{columns:3;column-gap:14px}
+.gitem{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--panel)}
+.gitem img{width:100%;transition:.6s ease;filter:saturate(.95)}
+.gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.5),transparent 55%);opacity:0;transition:.4s}
+.gitem:hover img{transform:scale(1.05)}
+.gitem:hover::after{opacity:1}
+.gitem .plus{position:absolute;right:14px;bottom:14px;color:#fff;opacity:0;transition:.4s;z-index:2;font-size:22px;font-family:var(--serif)}
+.gitem:hover .plus{opacity:1}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(6,7,9,.96);z-index:1000;display:none;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:86vh;object-fit:contain;box-shadow:0 40px 120px rgba(0,0,0,.7);border-radius:2px}
+.lb-close{position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:34px;cursor:pointer;line-height:1;opacity:.8}
+.lb-close:hover{opacity:1;color:var(--gold)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;width:54px;height:54px;border-radius:50%;font-size:22px;cursor:pointer;transition:.3s}
+.lb-nav:hover{background:var(--gold);color:#1a1408;border-color:var(--gold)}
+.lb-prev{left:28px}.lb-next{right:28px}
+.lb-count{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:13px;letter-spacing:.12em}
+
+/* LOCATION */
+.loc{background:var(--bg2)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.loc ul{list-style:none;margin-top:26px}
+.loc li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);font-weight:300}
+.loc li b{color:var(--ink);font-weight:500;min-width:150px}
+.loc .mapimg img{width:100%;height:440px;object-fit:cover;border-radius:2px;box-shadow:var(--shadow)}
+
+/* CTA / CONTACT */
+.contact{position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;z-index:0}
+.contact-bg img{width:100%;height:100%;object-fit:cover;opacity:.16}
+.contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--bg),rgba(12,13,15,.75))}
+.contact-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.contact h2{font-size:clamp(30px,4vw,46px);margin-bottom:20px}
+.contact p{color:var(--muted);font-weight:300;margin-bottom:28px}
+.cinfo{margin-top:30px}
+.cinfo .row{display:flex;gap:14px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.cinfo .row .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);min-width:90px}
+.cinfo .row a,.cinfo .row span{color:var(--ink);font-weight:500}
+form{background:var(--panel);border:1px solid var(--line);padding:38px;border-radius:2px}
+form label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+form input,form textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);padding:13px 15px;font-family:var(--sans);font-size:15px;border-radius:2px;margin-bottom:20px;transition:.25s}
+form input:focus,form textarea:focus{outline:none;border-color:var(--gold)}
+form textarea{resize:vertical;min-height:110px}
+form .btn-gold{width:100%;justify-content:center;border:none}
+
+/* FOOTER */
+footer{background:#08090b;border-top:1px solid var(--line);padding:50px 0 34px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .brand b{font-size:20px}
+.foot-links{display:flex;gap:26px}
+.foot-links a{font-size:13px;color:var(--muted);transition:.25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-copy{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--stone);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(30px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .split{grid-template-columns:1fr;gap:40px}
+  .split .media img{height:440px}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .loc-grid,.contact-inner{grid-template-columns:1fr;gap:40px}
+  .facts-grid{grid-template-columns:repeat(3,1fr)}
+  .fact:nth-child(3){border-right:none}
+  .fact:nth-child(-n+3){border-bottom:1px solid var(--line)}
+  .gallery{columns:2}
+}
+@media(max-width:760px){
+  .wrap{padding:0 20px}
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(10,11,13,.97);backdrop-filter:blur(14px);padding:24px 20px;gap:20px;border-bottom:1px solid var(--line)}
+  section.blk{padding:72px 0}
+  .facts-grid{grid-template-columns:repeat(2,1fr)}
+  .fact{border-right:none}
+  .fact:nth-child(odd){border-right:1px solid var(--line)}
+  .fact:nth-child(-n+4){border-bottom:1px solid var(--line)}
+  .feat-grid{grid-template-columns:1fr}
+  .gallery{columns:1}
+  .hero{padding-bottom:14vh}
+  .lb-nav{width:44px;height:44px}
+  .lb-prev{left:10px}.lb-next{right:10px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <b data-i18n="brand">Rezydencja Barcelona</b>
+      <span data-i18n="brandsub">Kolekcja nieruchomości premium</span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about" data-i18n="nav_about">Rezydencja</a>
+      <a href="#features" data-i18n="nav_features">Atuty</a>
+      <a href="#gallery" data-i18n="nav_gallery">Galeria</a>
+      <a href="#location" data-i18n="nav_location">Lokalizacja</a>
+      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="pl" class="active">PL</button>
+        <button data-lang="ru">RU</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-gold" data-i18n="nav_cta" style="padding:11px 22px">Zapytaj o cenę</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="hero-bg"><img src="assets/full/49.jpg" alt="Rezydencja o zachodzie słońca"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow" data-i18n="hero_eyebrow">Barcelona · Wzgórza z widokiem na morze</span>
+    <h1 data-i18n-html="hero_title">Pałacowa rezydencja<br>ponad <i>Barceloną</i></h1>
+    <p class="lead" data-i18n="hero_lead">Wyjątkowa willa w stylu klasycznym z basenem infinity, panoramą miasta i Morza Śródziemnego. Marmur, ręcznie rzeźbione detale, kryty basen ze spa.</p>
+    <div class="hero-cta">
+      <a href="#gallery" class="btn btn-gold" data-i18n="hero_cta1">Zobacz galerię</a>
+      <a href="#contact" class="btn btn-ghost" data-i18n="hero_cta2">Umów prezentację</a>
+    </div>
+  </div>
+  <div class="scroll-hint" data-i18n="scroll">Przewiń</div>
+</section>
+
+<div class="facts">
+  <div class="wrap"><div class="facts-grid">
+    <div class="fact"><div class="v" data-i18n="f1v">800 m²</div><div class="k" data-i18n="f1k">Powierzchnia</div></div>
+    <div class="fact"><div class="v" data-i18n="f2v">1 500 m²</div><div class="k" data-i18n="f2k">Działka</div></div>
+    <div class="fact"><div class="v" data-i18n="f3v">6</div><div class="k" data-i18n="f3k">Sypialnie</div></div>
+    <div class="fact"><div class="v" data-i18n="f4v">7</div><div class="k" data-i18n="f4k">Łazienki</div></div>
+    <div class="fact"><div class="v" data-i18n="f5v">2</div><div class="k" data-i18n="f5k">Baseny</div></div>
+    <div class="fact"><div class="v" data-i18n="f6v">360°</div><div class="k" data-i18n="f6k">Panorama</div></div>
+  </div></div>
+</div>
+
+<section class="blk" id="about">
+  <div class="wrap split">
+    <div class="txt reveal">
+      <span class="eyebrow" data-i18n="about_eyebrow">O rezydencji</span>
+      <h2 data-i18n="about_h" style="margin-top:16px">Klasyczny majestat,<br>współczesny komfort</h2>
+      <p data-i18n-html="about_p1">Rezydencja wznosi się na jednym z najbardziej prestiżowych wzgórz nad Barceloną. <b>Kamienna elewacja, mansardowy dach i kolumnady</b> nadają jej charakter pałacu, a wnętrza łączą marmur, ręcznie rzeźbione płaskorzeźby i najnowsze technologie.</p>
+      <p data-i18n-html="about_p2">Dwukondygnacyjny hol z reprezentacyjnymi schodami, sufity z „gwiaździstym niebem", <b>kryty basen ze spa i strefą wellness</b> oraz zewnętrzny basen infinity z widokiem na miasto i morze — to dom stworzony do życia i przyjmowania gości na najwyższym poziomie.</p>
+      <a href="#gallery" class="btn btn-ghost" style="margin-top:14px" data-i18n="about_cta">Poznaj wnętrza</a>
+    </div>
+    <div class="media reveal">
+      <img src="assets/full/35.jpg" alt="Elewacja rezydencji">
+      <div class="tag"><b data-i18n="about_tagv">Styl pałacowy</b><span data-i18n="about_tagk">Kamień · marmur · złoto</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="features" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="feat_eyebrow">Atuty</span>
+      <h2 data-i18n="feat_h">To, co czyni ją wyjątkową</h2>
+      <p data-i18n="feat_p">Każdy detal został zaprojektowany z myślą o luksusie, prywatności i codziennym komforcie.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="feat"><div class="ic">◈</div><h3 data-i18n="feat1h">Basen infinity</h3><p data-i18n="feat1p">Zewnętrzny basen bez krawędzi z panoramą Barcelony i Morza Śródziemnego.</p></div>
+      <div class="feat"><div class="ic">❋</div><h3 data-i18n="feat2h">Kryty basen i spa</h3><p data-i18n="feat2p">Wewnętrzna strefa wellness z podświetlanym basenem i sufitem „gwiaździste niebo".</p></div>
+      <div class="feat"><div class="ic">▲</div><h3 data-i18n="feat3h">Widok na miasto i morze</h3><p data-i18n="feat3p">Rezydencja położona na wzgórzu z niezakłóconą panoramą 180°.</p></div>
+      <div class="feat"><div class="ic">✦</div><h3 data-i18n="feat4h">Marmurowe wnętrza</h3><p data-i18n="feat4p">Polerowany marmur, kolumny i ręcznie rzeźbione kamienne płaskorzeźby.</p></div>
+      <div class="feat"><div class="ic">⛬</div><h3 data-i18n="feat5h">Reprezentacyjny hol</h3><p data-i18n="feat5p">Dwukondygnacyjny salon ze schodami i galerią oraz kutymi balustradami.</p></div>
+      <div class="feat"><div class="ic">✧</div><h3 data-i18n="feat6h">Prywatny ogród</h3><p data-i18n="feat6p">Zadbany teren z trawnikiem, tarasami i strefą wypoczynku na świeżym powietrzu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="gal_eyebrow">Galeria</span>
+      <h2 data-i18n="gal_h">50 kadrów rezydencji</h2>
+      <p data-i18n="gal_p">Kliknij zdjęcie, aby powiększyć. Od pałacowej elewacji po basen ze spa.</p>
+    </div>
+    <div class="gallery reveal" id="gallery-grid"></div>
+  </div>
+</section>
+
+<section class="blk loc" id="location">
+  <div class="wrap loc-grid">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="loc_eyebrow">Lokalizacja</span>
+      <h2 data-i18n="loc_h" style="font-size:clamp(28px,3.6vw,44px);margin-top:16px">Wzgórza nad Barceloną</h2>
+      <p data-i18n="loc_p" style="color:var(--muted);margin-top:18px;font-weight:300">Jedna z najbardziej ekskluzywnych okolic w regionie — cisza, zieleń i prywatność, a jednocześnie kilka minut od centrum miasta, plaż i międzynarodowej szkoły.</p>
+      <ul>
+        <li><b data-i18n="loc1b">Centrum Barcelony</b><span data-i18n="loc1v">ok. 15 minut samochodem</span></li>
+        <li><b data-i18n="loc2b">Plaże / morze</b><span data-i18n="loc2v">ok. 15 minut</span></li>
+        <li><b data-i18n="loc3b">Lotnisko El Prat</b><span data-i18n="loc3v">ok. 30 minut</span></li>
+        <li><b data-i18n="loc4b">Otoczenie</b><span data-i18n="loc4v">prestiżowa dzielnica willowa</span></li>
+      </ul>
+    </div>
+    <div class="mapimg reveal"><img src="assets/full/50.jpg" alt="Widok na Barcelonę z basenu"></div>
+  </div>
+</section>
+
+<section class="blk contact" id="contact">
+  <div class="contact-bg"><img src="assets/full/25.jpg" alt=""></div>
+  <div class="wrap contact-inner">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="con_eyebrow">Kontakt</span>
+      <h2 data-i18n="con_h" style="margin-top:16px">Umów prywatną prezentację</h2>
+      <p data-i18n="con_p">Cena udostępniana na życzenie. Skontaktuj się z nami, aby otrzymać pełną dokumentację i umówić indywidualne oglądanie rezydencji.</p>
+      <div class="cinfo">
+        <div class="row"><span class="lbl" data-i18n="con_phone">Telefon</span><a href="tel:+48000000000">+48 000 000 000</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:kontakt@zovu.pl">kontakt@zovu.pl</a></div>
+        <div class="row"><span class="lbl" data-i18n="con_agency">Agencja</span><span>ZOVU · zovu.pl</span></div>
+        <div class="row"><span class="lbl" data-i18n="con_ref">Nr oferty</span><span>ZV-BCN-001</span></div>
+      </div>
+    </div>
+    <form onsubmit="return sendForm(event)">
+      <label data-i18n="form_name">Imię i nazwisko</label>
+      <input type="text" required>
+      <label data-i18n="form_email">E-mail lub telefon</label>
+      <input type="text" required>
+      <label data-i18n="form_msg">Wiadomość</label>
+      <textarea data-i18n-ph="form_msg_ph" placeholder="Jestem zainteresowany/a tą rezydencją..."></textarea>
+      <button type="submit" class="btn btn-gold" data-i18n="form_send">Wyślij zapytanie</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand"><b data-i18n="brand">Rezydencja Barcelona</b><span data-i18n="brandsub">Kolekcja nieruchomości premium</span></div>
+      <div class="foot-links">
+        <a href="#about" data-i18n="nav_about">Rezydencja</a>
+        <a href="#gallery" data-i18n="nav_gallery">Galeria</a>
+        <a href="#location" data-i18n="nav_location">Lokalizacja</a>
+        <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <span data-i18n="foot_copy">© 2026 ZOVU. Wszelkie prawa zastrzeżone.</span>
+      <span data-i18n="foot_note">Zdjęcia poglądowe. Oferta nie stanowi oferty handlowej w rozumieniu prawa.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+/* ===== i18n ===== */
+const I18N={
+pl:{
+brand:"Rezydencja Barcelona",brandsub:"Kolekcja nieruchomości premium",
+nav_about:"Rezydencja",nav_features:"Atuty",nav_gallery:"Galeria",nav_location:"Lokalizacja",nav_contact:"Kontakt",nav_cta:"Zapytaj o cenę",
+hero_eyebrow:"Barcelona · Wzgórza z widokiem na morze",hero_title:"Pałacowa rezydencja<br>ponad <i>Barceloną</i>",
+hero_lead:"Wyjątkowa willa w stylu klasycznym z basenem infinity, panoramą miasta i Morza Śródziemnego. Marmur, ręcznie rzeźbione detale, kryty basen ze spa.",
+hero_cta1:"Zobacz galerię",hero_cta2:"Umów prezentację",scroll:"Przewiń",
+f1v:"800 m²",f1k:"Powierzchnia",f2v:"1 500 m²",f2k:"Działka",f3v:"6",f3k:"Sypialnie",f4v:"7",f4k:"Łazienki",f5v:"2",f5k:"Baseny",f6v:"180°",f6k:"Panorama",
+about_eyebrow:"O rezydencji",about_h:"Klasyczny majestat,<br>współczesny komfort",
+about_p1:"Rezydencja wznosi się na jednym z najbardziej prestiżowych wzgórz nad Barceloną. <b>Kamienna elewacja, mansardowy dach i kolumnady</b> nadają jej charakter pałacu, a wnętrza łączą marmur, ręcznie rzeźbione płaskorzeźby i najnowsze technologie.",
+about_p2:"Dwukondygnacyjny hol z reprezentacyjnymi schodami, sufity z „gwiaździstym niebem\", <b>kryty basen ze spa i strefą wellness</b> oraz zewnętrzny basen infinity z widokiem na miasto i morze — to dom stworzony do życia i przyjmowania gości na najwyższym poziomie.",
+about_cta:"Poznaj wnętrza",about_tagv:"Styl pałacowy",about_tagk:"Kamień · marmur · złoto",
+feat_eyebrow:"Atuty",feat_h:"To, co czyni ją wyjątkową",feat_p:"Każdy detal został zaprojektowany z myślą o luksusie, prywatności i codziennym komforcie.",
+feat1h:"Basen infinity",feat1p:"Zewnętrzny basen bez krawędzi z panoramą Barcelony i Morza Śródziemnego.",
+feat2h:"Kryty basen i spa",feat2p:"Wewnętrzna strefa wellness z podświetlanym basenem i sufitem „gwiaździste niebo\".",
+feat3h:"Widok na miasto i morze",feat3p:"Rezydencja położona na wzgórzu z niezakłóconą panoramą 180°.",
+feat4h:"Marmurowe wnętrza",feat4p:"Polerowany marmur, kolumny i ręcznie rzeźbione kamienne płaskorzeźby.",
+feat5h:"Reprezentacyjny hol",feat5p:"Dwukondygnacyjny salon ze schodami i galerią oraz kutymi balustradami.",
+feat6h:"Prywatny ogród",feat6p:"Zadbany teren z trawnikiem, tarasami i strefą wypoczynku na świeżym powietrzu.",
+gal_eyebrow:"Galeria",gal_h:"50 kadrów rezydencji",gal_p:"Kliknij zdjęcie, aby powiększyć. Od pałacowej elewacji po basen ze spa.",
+loc_eyebrow:"Lokalizacja",loc_h:"Wzgórza nad Barceloną",loc_p:"Jedna z najbardziej ekskluzywnych okolic w regionie — cisza, zieleń i prywatność, a jednocześnie kilka minut od centrum miasta, plaż i międzynarodowej szkoły.",
+loc1b:"Centrum Barcelony",loc1v:"ok. 15 minut samochodem",loc2b:"Plaże / morze",loc2v:"ok. 15 minut",loc3b:"Lotnisko El Prat",loc3v:"ok. 30 minut",loc4b:"Otoczenie",loc4v:"prestiżowa dzielnica willowa",
+con_eyebrow:"Kontakt",con_h:"Umów prywatną prezentację",con_p:"Cena udostępniana na życzenie. Skontaktuj się z nami, aby otrzymać pełną dokumentację i umówić indywidualne oglądanie rezydencji.",
+con_phone:"Telefon",con_agency:"Agencja",con_ref:"Nr oferty",
+form_name:"Imię i nazwisko",form_email:"E-mail lub telefon",form_msg:"Wiadomość",form_msg_ph:"Jestem zainteresowany/a tą rezydencją...",form_send:"Wyślij zapytanie",
+foot_copy:"© 2026 ZOVU. Wszelkie prawa zastrzeżone.",foot_note:"Zdjęcia poglądowe. Ogłoszenie nie stanowi oferty w rozumieniu prawa."
+},
+ru:{
+brand:"Резиденция Барселона",brandsub:"Коллекция премиум-недвижимости",
+nav_about:"Резиденция",nav_features:"Преимущества",nav_gallery:"Галерея",nav_location:"Расположение",nav_contact:"Контакты",nav_cta:"Узнать цену",
+hero_eyebrow:"Барселона · Холмы с видом на море",hero_title:"Дворцовая резиденция<br>над <i>Барселоной</i>",
+hero_lead:"Исключительная вилла в классическом стиле с бассейном инфинити, панорамой города и Средиземного моря. Мрамор, ручная резьба, крытый бассейн со спа.",
+hero_cta1:"Смотреть галерею",hero_cta2:"Записаться на показ",scroll:"Листайте",
+f1v:"800 м²",f1k:"Площадь дома",f2v:"1 500 м²",f2k:"Участок",f3v:"6",f3k:"Спальни",f4v:"7",f4k:"Санузлы",f5v:"2",f5k:"Бассейна",f6v:"180°",f6k:"Панорама",
+about_eyebrow:"О резиденции",about_h:"Классическое величие,<br>современный комфорт",
+about_p1:"Резиденция расположена на одном из самых престижных холмов над Барселоной. <b>Каменный фасад, мансардная крыша и колоннады</b> придают ей облик дворца, а интерьеры сочетают мрамор, ручную резьбу по камню и новейшие технологии.",
+about_p2:"Двусветный холл с парадной лестницей, потолки «звёздное небо», <b>крытый бассейн со спа и зоной велнес</b>, а также внешний бассейн инфинити с видом на город и море — дом, созданный для жизни и приёма гостей на высшем уровне.",
+about_cta:"Смотреть интерьеры",about_tagv:"Дворцовый стиль",about_tagk:"Камень · мрамор · золото",
+feat_eyebrow:"Преимущества",feat_h:"Что делает её особенной",feat_p:"Каждая деталь продумана ради роскоши, приватности и ежедневного комфорта.",
+feat1h:"Бассейн инфинити",feat1p:"Внешний бассейн без края с панорамой Барселоны и Средиземного моря.",
+feat2h:"Крытый бассейн и спа",feat2p:"Внутренняя велнес-зона с подсвеченным бассейном и потолком «звёздное небо».",
+feat3h:"Вид на город и море",feat3p:"Резиденция на холме с открытой панорамой 180°.",
+feat4h:"Мраморные интерьеры",feat4p:"Полированный мрамор, колонны и ручная резьба по камню — барельефы.",
+feat5h:"Парадный холл",feat5p:"Двусветная гостиная с лестницей, галереей и коваными балюстрадами.",
+feat6h:"Приватный сад",feat6p:"Ухоженная территория с газоном, террасами и зоной отдыха на воздухе.",
+gal_eyebrow:"Галерея",gal_h:"50 кадров резиденции",gal_p:"Нажмите на фото для увеличения. От дворцового фасада до бассейна со спа.",
+loc_eyebrow:"Расположение",loc_h:"Холмы над Барселоной",loc_p:"Один из самых эксклюзивных районов региона — тишина, зелень и приватность, и при этом всего несколько минут до центра города, пляжей и международной школы.",
+loc1b:"Центр Барселоны",loc1v:"около 15 минут на авто",loc2b:"Пляжи / море",loc2v:"около 15 минут",loc3b:"Аэропорт Эль-Прат",loc3v:"около 30 минут",loc4b:"Окружение",loc4v:"престижный вилловый район",
+con_eyebrow:"Контакты",con_h:"Записаться на частный показ",con_p:"Цена предоставляется по запросу. Свяжитесь с нами, чтобы получить полную документацию и назначить индивидуальный просмотр резиденции.",
+con_phone:"Телефон",con_agency:"Агентство",con_ref:"№ объекта",
+form_name:"Имя и фамилия",form_email:"E-mail или телефон",form_msg:"Сообщение",form_msg_ph:"Меня интересует эта резиденция...",form_send:"Отправить запрос",
+foot_copy:"© 2026 ZOVU. Все права защищены.",foot_note:"Фотографии ознакомительные. Объявление не является публичной офертой."
+},
+en:{
+brand:"Barcelona Residence",brandsub:"Premium property collection",
+nav_about:"Residence",nav_features:"Highlights",nav_gallery:"Gallery",nav_location:"Location",nav_contact:"Contact",nav_cta:"Request price",
+hero_eyebrow:"Barcelona · Hills with sea views",hero_title:"A palatial residence<br>above <i>Barcelona</i>",
+hero_lead:"An exceptional classical villa with an infinity pool and sweeping views of the city and the Mediterranean. Marble, hand-carved detailing, indoor pool and spa.",
+hero_cta1:"View gallery",hero_cta2:"Book a viewing",scroll:"Scroll",
+f1v:"800 m²",f1k:"Built area",f2v:"1,500 m²",f2k:"Plot",f3v:"6",f3k:"Bedrooms",f4v:"7",f4k:"Bathrooms",f5v:"2",f5k:"Pools",f6v:"180°",f6k:"Panorama",
+about_eyebrow:"The residence",about_h:"Classical grandeur,<br>modern comfort",
+about_p1:"The residence sits on one of the most prestigious hills above Barcelona. <b>A stone façade, mansard roof and colonnades</b> give it the presence of a palace, while the interiors blend marble, hand-carved stone reliefs and the latest technology.",
+about_p2:"A double-height hall with a grand staircase, starlit ceilings, <b>an indoor pool with spa and wellness area</b>, and an outdoor infinity pool overlooking the city and sea — a home built to live in and to entertain at the highest level.",
+about_cta:"Explore interiors",about_tagv:"Palatial style",about_tagk:"Stone · marble · gold",
+feat_eyebrow:"Highlights",feat_h:"What makes it exceptional",feat_p:"Every detail is designed for luxury, privacy and effortless everyday comfort.",
+feat1h:"Infinity pool",feat1p:"An outdoor edgeless pool with panoramic views of Barcelona and the Mediterranean.",
+feat2h:"Indoor pool & spa",feat2p:"An indoor wellness area with an illuminated pool and a starlit ceiling.",
+feat3h:"City & sea views",feat3p:"Set on a hillside with unobstructed 180° panoramas.",
+feat4h:"Marble interiors",feat4p:"Polished marble, columns and hand-carved stone relief walls.",
+feat5h:"Grand hall",feat5p:"A double-height living space with staircase, gallery and wrought-iron balustrades.",
+feat6h:"Private garden",feat6p:"Landscaped grounds with lawn, terraces and an outdoor lounge area.",
+gal_eyebrow:"Gallery",gal_h:"50 frames of the residence",gal_p:"Click any photo to enlarge. From the palatial façade to the pool and spa.",
+loc_eyebrow:"Location",loc_h:"The hills above Barcelona",loc_p:"One of the region's most exclusive areas — quiet, green and private, yet just minutes from the city centre, the beaches and international schooling.",
+loc1b:"Barcelona centre",loc1v:"approx. 15 minutes by car",loc2b:"Beaches / sea",loc2v:"approx. 15 minutes",loc3b:"El Prat airport",loc3v:"approx. 30 minutes",loc4b:"Surroundings",loc4v:"prestigious villa district",
+con_eyebrow:"Contact",con_h:"Arrange a private viewing",con_p:"Price on request. Get in touch to receive the full dossier and to arrange a private viewing of the residence.",
+con_phone:"Phone",con_agency:"Agency",con_ref:"Ref. no.",
+form_name:"Full name",form_email:"E-mail or phone",form_msg:"Message",form_msg_ph:"I'm interested in this residence...",form_send:"Send enquiry",
+foot_copy:"© 2026 ZOVU. All rights reserved.",foot_note:"Photos for illustration. This listing does not constitute a binding offer."
+}
+};
+
+function applyLang(lang){
+  const d=I18N[lang];if(!d)return;
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!=null)el.textContent=d[k];});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n-html');if(d[k]!=null)el.innerHTML=d[k];});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(d[k]!=null)el.placeholder=d[k];});
+  document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  try{localStorage.setItem('rez_lang',lang)}catch(e){}
+}
+document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+applyLang((()=>{try{return localStorage.getItem('rez_lang')}catch(e){return null}})()||'pl');
+
+/* ===== nav scroll + burger ===== */
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const navlinks=document.getElementById('navlinks');
+document.getElementById('burger').addEventListener('click',()=>navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navlinks.classList.remove('open')));
+
+/* ===== gallery ===== */
+const N=50;const grid=document.getElementById('gallery-grid');
+let items='';
+for(let i=1;i<=N;i++){
+  items+=`<div class="gitem" data-i="${i}"><img loading="lazy" src="assets/thumb/${i}.jpg" alt="Rezydencja ${i}"><span class="plus">+</span></div>`;
+}
+grid.innerHTML=items;
+
+/* ===== lightbox ===== */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount');
+let cur=1;
+function openLB(i){cur=i;lbImg.src=`assets/full/${i}.jpg`;lbCount.textContent=`${i} / ${N}`;lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){lb.classList.remove('open');document.body.style.overflow='';}
+function nav(d){cur=((cur-1+d+N)%N)+1;lbImg.src=`assets/full/${cur}.jpg`;lbCount.textContent=`${cur} / ${N}`;}
+grid.querySelectorAll('.gitem').forEach(el=>el.addEventListener('click',()=>openLB(+el.dataset.i)));
+document.getElementById('lbClose').addEventListener('click',closeLB);
+document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();nav(-1)});
+document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();nav(1)});
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')nav(-1);if(e.key==='ArrowRight')nav(1);});
+
+/* ===== reveal ===== */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== form ===== */
+function sendForm(e){e.preventDefault();const l=document.documentElement.lang;const msg={pl:"Dziękujemy! Skontaktujemy się wkrótce.",ru:"Спасибо! Мы скоро свяжемся с вами.",en:"Thank you! We will contact you shortly."};alert(msg[l]||msg.pl);e.target.reset();return false;}
+</script>
+</body>
+</html>
