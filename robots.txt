@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zovupl.github.io/rezydencja/sitemap.xml
