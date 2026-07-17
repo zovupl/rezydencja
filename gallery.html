@@ -91,6 +91,7 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:34px 0}
     <div class="nav-right">
       <div class="lang" id="lang">
         <button data-lang="es" class="active">ES</button>
+        <button data-lang="ru">RU</button>
         <button data-lang="en">EN</button>
       </div>
     </div>
@@ -125,7 +126,8 @@ footer{background:#08090b;border-top:1px solid var(--line);padding:34px 0}
 <script>
 const I18N={
 es:{brand:"Residencia Barcelona",brandsub:"Colección de propiedades premium",nav_about:"Residencia",nav_features:"Características",nav_gallery:"Galería",nav_location:"Ubicación",nav_contact:"Contacto",gal_eyebrow:"Galería",gal_h:"Galería de la residencia",gal_page_p:"Haz clic en cualquier foto para ampliarla. Flechas o Esc para navegar.",gal_back:"Volver al inicio",foot_copy:"© 2026 ZOVU. Todos los derechos reservados."},
-en:{brand:"Barcelona Residence",brandsub:"Premium property collection",nav_about:"Residence",nav_features:"Highlights",nav_gallery:"Gallery",nav_location:"Location",nav_contact:"Contact",gal_eyebrow:"Gallery",gal_h:"Residence gallery",gal_page_p:"Click any photo to enlarge. Arrow keys or Esc to navigate.",gal_back:"Back to home",foot_copy:"© 2026 ZOVU. All rights reserved."}
+en:{brand:"Barcelona Residence",brandsub:"Premium property collection",nav_about:"Residence",nav_features:"Highlights",nav_gallery:"Gallery",nav_location:"Location",nav_contact:"Contact",gal_eyebrow:"Gallery",gal_h:"Residence gallery",gal_page_p:"Click any photo to enlarge. Arrow keys or Esc to navigate.",gal_back:"Back to home",foot_copy:"© 2026 ZOVU. All rights reserved."},
+ru:{brand:"Резиденция Барселона",brandsub:"Коллекция премиум-недвижимости",nav_about:"Резиденция",nav_features:"Особенности",nav_gallery:"Галерея",nav_location:"Расположение",nav_contact:"Контакты",gal_eyebrow:"Галерея",gal_h:"Галерея резиденции",gal_page_p:"Нажмите на любое фото, чтобы увеличить. Стрелки или Esc для навигации.",gal_back:"На главную",foot_copy:"© 2026 ZOVU. Все права защищены."}
 };
 function applyLang(lang){const d=I18N[lang];if(!d)return;document.documentElement.lang=lang;
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!=null)el.textContent=d[k];});
